@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { HashRouter, Route, Switch } from 'react-router-dom';
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import './App.scss';
 import "./scss/custom.css";
 
@@ -16,6 +18,7 @@ class App extends Component {
   render() {
     return (
       <HashRouter>
+          <ToastContainer />
           <React.Suspense fallback={loading()}>
             <Switch>
               <Route exact path="/login" name="Login Page" render={props => <Login {...props}/>} />

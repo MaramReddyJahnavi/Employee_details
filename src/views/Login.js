@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { toast } from "react-toastify";
 import { Button, Card, CardBody, CardGroup, Col, Container, Form, Input, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';
 import { onLoginSuccessAction } from '../store/actions/userAction';
 
@@ -20,8 +21,15 @@ class Login extends Component {
             if(password === "hruday123") {
                 onLoginSuccessAction();
                 history.push("/dashboard");
+            } else {
+                toast.warning("Password is invalid");
             }
         }
+        else {
+            toast.warning("Please enter a valid email id");
+        }
+    } else {
+        toast.info("Please enter the required fields");
     }
   };
 
